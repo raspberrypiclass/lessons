@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#!/usr/bin/env python
 # A sample file used to demonstrate the cpu being mashed
 
 count = 0
