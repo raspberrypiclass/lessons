@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/jquery-2.1.1.js"></script>
+</head>
+<body>
+<script>
+$(document).ready(function() {
+$('button').click(function(){
+console.log('toggling now');
+$('.styling').toggle();
+});
+
+});
+</script>
+<button>Click me</button>
+<div class="styling">
+hello world
+</div>
+</body>
+</html>
