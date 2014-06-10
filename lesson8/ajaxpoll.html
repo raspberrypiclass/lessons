@@ -1,0 +1,29 @@
+<html>
+<head>
+<script src="../js/jquery-2.1.1.js"></script>
+
+<script>
+$(document).ready(function() {
+setInterval(function() {
+$.ajax({
+url: "/cgi-bin/show.py",
+cache:false,
+success: function(html){
+$('#results').html(html);
+console.log('polling');
+}
+
+});
+},5000);
+console.log("test2");
+});
+</script>
+</head>
+<body>
+Polled set of results
+<div id="results">
+
+</div>
+</body>
+
+</html>
