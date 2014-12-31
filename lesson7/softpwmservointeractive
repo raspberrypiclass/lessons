@@ -1,0 +1,23 @@
+import RPi.GPIO as GPIO
+import time
+
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(12, GPIO.OUT)
+
+p = GPIO.PWM(12,50)
+#start at neutral position 90 degrees
+p.start(7.5)
+time.sleep(1)
+def convert_angle(angle):
+    converted_duty_cycle = (((((2/180.0) * angle) + 0.5)/20) * 100)
+    return converted_duty_cycle
+
+try:
+    while True:
+        angle_input = float(raw_input("Enter degree:"))
+        duty_cycle = convert_angle(angle_input)
+        p.ChangeDutyCycle(duty_cycle)
+        time.sleep(1)
+except KeyboardInterrupt:
+    p.stop()
+    GPIO.cleanup()
